@@ -11,11 +11,13 @@ function sanitizeAlumnoInput(req: Request, res: Response, next: NextFunction){
         age: req.body.age,
         email: req.body.email,
     }
+    console.log(req.body)
     Object.keys(req.body.sanitizedInput).forEach(key=>{
         if(req.body.sanitizedInput[key]===undefined){
             delete req.body.sanitizedInput[key]
         }
     })
+    
     next()
 }
 
@@ -35,14 +37,15 @@ async function findOne(req:Request,res:Response){
 async function add(req: Request,res: Response){
 
     const input=req.body.sanitizedInput
+    console.log('Parámetros recibidos:', input);  
     const alumnoInput = new Alumno(input.name,
         input.lastname,
         input.age,
         input.email,
         input.legajo)
-    
+        console.log('Parámetros recibidos:', alumnoInput);    
     const alumno = await repository.add(alumnoInput)
-    return res.status(201).send({message:'Alumno created', data: Alumno})
+    return res.status(200).send({message:'Alumno created', data: Alumno})
 }
 
 async function update(req: Request, res: Response) {

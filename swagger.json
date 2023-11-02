@@ -1,0 +1,44 @@
+{
+  "swaggerDefinition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Documentacion de mi API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "alumnos": {
+          "type": "object",
+          "required": [
+            "name",
+            "lastname",
+            "age",
+            "email"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "lastname": {
+              "type": "string"
+            },
+            "age": {
+              "type": "integer"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "apis": [
+    "./src/Alumno/alumno.routes.ts"
+  ]
+}
