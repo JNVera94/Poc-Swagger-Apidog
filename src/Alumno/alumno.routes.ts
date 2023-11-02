@@ -17,6 +17,13 @@ export const AlumnoRouter = Router()
  *   post:
  *     summary: Agregar un nuevo alumno
  *     description: Agregar un nuevo alumno
+ *     operationId: createAlumno
+ *     requestBody:
+ *       description: Actualizar un alumno existente
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/alumnos'
  *     responses:
  *       '201':
  *         description: Creado
